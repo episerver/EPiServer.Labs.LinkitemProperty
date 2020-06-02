@@ -406,6 +406,7 @@
     <Compile Include="Models\Pages\SitePageData.cs" />
     <Compile Include="Models\Pages\StandardPage.cs" />
     <Compile Include="Models\Pages\StartPage.cs" />
+    <Compile Include="Models\Pages\TestPage.cs" />
     <Compile Include="Models\Properties\PropertyStringList.cs" />
     <Compile Include="Models\Register\RegisterViewModel.cs">
       <SubType>Code</SubType>
@@ -432,6 +433,9 @@
     <Content Include="EpiserverLog.config" />
     <Content Include="favicon.ico" />
     <Content Include="libman.json" />
+    <Content Include="modules\_protected\episerver-labs-linkitem-property\1.0.0\Scripts\editors\link-item-editor.js" />
+    <Content Include="modules\_protected\episerver-labs-linkitem-property\1.0.0\Scripts\widget\extended-link-editor.js" />
+    <Content Include="modules\_protected\episerver-labs-linkitem-property\1.0.0\Scripts\widget\overlay\list-item-editor.js" />
     <Content Include="Resources\LanguageFiles\PropertyNames_sv.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -512,11 +516,14 @@
     <Content Include="modules\_protected\CMS\CMS.zip" />
     <Content Include="modules\_protected\episerver-telemetry-ui\web.config" />
     <Content Include="modules\_protected\episerver-telemetry-ui\episerver-telemetry-ui.zip" />
+    <Content Include="modules\_protected\episerver-labs-linkitem-property\module.config" />
+    <Content Include="modules\_protected\episerver-labs-linkitem-property\web.config" />
     <None Include="modules\_protected\EPiServer.Forms.UI\EPiServer.Forms.UI.zip" />
     <None Include="modules\_protected\EPiServer.Forms.UI\module.config" />
     <None Include="modules\_protected\EPiServer.Forms\EPiServer.Forms.zip" />
     <None Include="modules\_protected\EPiServer.Forms\Forms.config" />
     <None Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\Web.config" />
+    <Content Include="Views\Shared\DisplayTemplates\LinkItem.cshtml" />
     <None Include="Views\_ReadMe.txt" />
     <Content Include="web.config">
       <SubType>Designer</SubType>

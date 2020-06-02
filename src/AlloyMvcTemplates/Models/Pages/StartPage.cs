@@ -50,5 +50,12 @@ namespace AlloyTemplates.Models.Pages
         [Display(GroupName = Global.GroupNames.SiteSettings)]
         public virtual SiteLogotypeBlock SiteLogotype { get; set; }
 
+        [Display(GroupName = Global.GroupNames.SiteSettings)]
+        [UIHint("SingleItem")]
+        public virtual LinkItemCollection IntranetLink { get; set; }
+
+        [Display(GroupName = Global.GroupNames.SiteSettings, Order = 320)]
+        [CultureSpecific]
+        public virtual ContentArea TestContentArea { get; set; }
     }
 }
