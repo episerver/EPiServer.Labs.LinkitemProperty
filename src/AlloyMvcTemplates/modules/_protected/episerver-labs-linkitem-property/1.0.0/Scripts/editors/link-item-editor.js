@@ -4,14 +4,16 @@ define([
     "dojo/aspect",
     "epi-cms/widget/_SelectorBase",
     "epi-cms/contentediting/command/ItemEdit",
-    "epi-cms/contentediting/viewmodel/LinkItemModel"
+    "epi-cms/contentediting/viewmodel/LinkItemModel",
+    "episerver-labs-linkitem-property/widget/extended-link-editor"
 ], function (
     declare,
     lang,
     aspect,
     _SelectorBase,
     ItemEditCommand,
-    LinkItemModel
+    LinkItemModel,
+    ExtendedLinkEditor
 ) {
     return declare([_SelectorBase], {
         postMixInProperties: function () {
@@ -35,13 +37,13 @@ define([
 
         _createCommand: function () {
             var dialogContentParams = this.commandOptions ? this.commandOptions.dialogContentParams : {};
-            dialogContentParams.allowDelete = false;
 
             var command = new ItemEditCommand({
                 isAvailable: true,
                 canExecute: true,
                 model: this.model,
-                dialogContentParams: dialogContentParams
+                dialogContentParams: dialogContentParams,
+                dialogContentClass: ExtendedLinkEditor
             });
 
             this.own(
