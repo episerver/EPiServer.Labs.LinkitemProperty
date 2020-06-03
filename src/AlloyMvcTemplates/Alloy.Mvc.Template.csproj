@@ -523,7 +523,7 @@
     <None Include="modules\_protected\EPiServer.Forms\EPiServer.Forms.zip" />
     <None Include="modules\_protected\EPiServer.Forms\Forms.config" />
     <None Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\Web.config" />
-    <Content Include="Views\Shared\DisplayTemplates\LinkItem.cshtml" />
+    <Content Include="modules\_protected\episerver-labs-linkitem-property\Views\LinkItem.cshtml" />
     <None Include="Views\_ReadMe.txt" />
     <Content Include="web.config">
       <SubType>Designer</SubType>
