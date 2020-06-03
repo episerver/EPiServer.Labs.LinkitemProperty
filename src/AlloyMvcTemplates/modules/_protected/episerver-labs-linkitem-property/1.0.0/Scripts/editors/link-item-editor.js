@@ -17,7 +17,6 @@ define([
 ) {
     return declare([_SelectorBase], {
         postMixInProperties: function () {
-
             this.inherited(arguments);
 
             if (this.customTypeIdentifier) {
@@ -32,7 +31,7 @@ define([
                 this._updateDisplayNode(null);
             }
             this._editItemCommand = this._createCommand();
-            this.own(this._createCommand(ItemEditCommand));
+            this.own(this._editItemCommand);
         },
 
         _createCommand: function () {
