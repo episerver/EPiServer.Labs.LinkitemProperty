@@ -168,6 +168,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LinkItemPageDataExtensions.cs" />
+    <Compile Include="LinkItemPropertyOptions.cs" />
+    <Compile Include="LinkItemViewEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleItemCollectionEditorDescriptor.cs" />
   </ItemGroup>

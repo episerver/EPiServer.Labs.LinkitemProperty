@@ -1,9 +1,7 @@
 ﻿@using EPiServer.Web.Mvc.Html
-@model EPiServer.SpecializedProperties.LinkItem
+@inherits System.Web.Mvc.WebViewPage<EPiServer.SpecializedProperties.LinkItem>
 
-zzzzzzzzzzzzzzzzzzzzzzzz
 @if (Model != null)
 {
     @Html.ContentLink(@Model)
 }
-ddddd

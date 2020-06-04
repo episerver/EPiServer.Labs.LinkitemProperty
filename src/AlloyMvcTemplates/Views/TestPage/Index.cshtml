@@ -1,7 +1,8 @@
 ﻿@using AlloyTemplates
+@using EPiServer.Labs.LinkItemProperty
 @model PageViewModel<TestPage>
 
-@{ Layout = "~/Views/Shared/Layouts/_LeftNavigation.cshtml"; }
+@{ Layout = null; }
 
 <h1>Test page</h1>
-@Html.PropertyFor(x => x.CurrentPage.Link1)
+@Html.PropertyFor(x => x.CurrentPage.Link1, new { Tag = LinkItemRendering.Tag })
