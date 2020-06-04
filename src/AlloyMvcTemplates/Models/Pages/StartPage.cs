@@ -4,6 +4,7 @@ using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.SpecializedProperties;
 using AlloyTemplates.Models.Blocks;
+using EPiServer.Labs.LinkItemProperty;
 
 namespace AlloyTemplates.Models.Pages
 {
@@ -51,7 +52,7 @@ namespace AlloyTemplates.Models.Pages
         public virtual SiteLogotypeBlock SiteLogotype { get; set; }
 
         [Display(GroupName = Global.GroupNames.SiteSettings)]
-        [UIHint("SingleItem")]
+        [LinkItemProperty]
         public virtual LinkItemCollection IntranetLink { get; set; }
 
         [Display(GroupName = Global.GroupNames.SiteSettings, Order = 320)]

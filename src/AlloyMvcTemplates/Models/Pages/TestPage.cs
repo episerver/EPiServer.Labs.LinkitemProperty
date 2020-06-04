@@ -10,7 +10,7 @@ namespace AlloyTemplates.Models.Pages
     public class TestPage : SitePageData
     {
         [Display(GroupName = Global.GroupNames.SiteSettings)]
-        [UIHint("SingleItem")]
+        [LinkItemProperty]
         [BackingType(typeof(PropertyLinkCollection))]
         public virtual LinkItem Link1
         {
