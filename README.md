@@ -1,6 +1,65 @@
 # Episerver Labs - LinkItem Property
 
-TODO: project documentation
+LinkProperty lab addon allow Editors to manage single LinkItem instance.
+It's a LinkItemCollection property with just one item.
+
+The new editor looks similar to ContentReference editor:
+
+![PropertyLink editor](assets/docsimages/LinkProperty_editor.png)
+
+When editing a link, then same dialog as for LinkItemCollection property is displayed:
+
+![PropertyLink editor](assets/docsimages/LinkProperty_dialog.png)
+
+
+The property is just a new UI Editor and it still use
+`PropertyLinkCollection` as a backing type.
+
+To use `LinkItemCollection` as model type, you just need to annotate 
+LinkItemCollection property with `LinkItemProperty` attribute:
+````
+[ContentType(GUID = "19671657-B684-4D95-A61F-8DD4FE60D559"]
+public class StartPage : PageData
+{
+    [LinkItemProperty]
+    public virtual LinkItemCollection IntranetLink { get; set; }
+}
+````
+
+To use `LinkItem` as a model type, additionally you have to add
+`BackingTypeAttribute` attribute and override default getter and setter.
+There are extension methods, so it's just two lines of code:
+````
+[ContentType(GUID = "19671657-B684-4D95-A61F-8DD4FE60D559"]
+public class StartPage : PageData
+{
+    [LinkItemProperty]
+    [BackingType(typeof(PropertyLinkCollection))]
+    public virtual LinkItem Link
+    {
+        get => this.GetLinkItemPropertyValue(nameof(Link));
+        set => this.SetLinkItemPropertyValue(nameof(Link), value);
+    }
+}
+````
+
+For `LinkItem` as a model, you can additionally use custom property renderer.
+It requires adding `EPiServer.Labs.LinkItemProperty.LinkItemRendering.Tag`
+tag when rendering:
+````
+@using AlloyTemplates
+@model PageViewModel<TestPage>
+
+@Html.PropertyFor(x => x.CurrentPage.Link, new { Tag = EPiServer.Labs.LinkItemProperty.LinkItemRendering.Tag })
+````
+
+![PropertyLink editor](assets/docsimages/LinkProperty_rendering.png)
+
+
+To add new link, you can use edit button, D&D content from page tree
+or D&D from other reference properties on the page:
+
+![PropertyLink editor](assets/docsimages/LinkProperty_dnd.gif)
 
 
 ## Telemetry opt-in
