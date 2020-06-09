@@ -1,5 +1,7 @@
-﻿using EPiServer.DataAnnotations;
+﻿using System.ComponentModel;
+using EPiServer.DataAnnotations;
 using System.ComponentModel.DataAnnotations;
+using EPiServer.Core;
 using EPiServer.Labs.LinkItemProperty;
 using EPiServer.SpecializedProperties;
 
@@ -9,7 +11,7 @@ namespace AlloyTemplates.Models.Pages
     [SiteImageUrl(Global.StaticGraphicsFolderPath + "page-type-thumbnail-standard.png")]
     public class TestPage : SitePageData
     {
-        [Display(GroupName = Global.GroupNames.SiteSettings)]
+        [Display(Name="Link", GroupName = Global.GroupNames.SiteSettings)]
         [LinkItemProperty]
         [BackingType(typeof(PropertyLinkCollection))]
         public virtual LinkItem Link1
@@ -17,5 +19,20 @@ namespace AlloyTemplates.Models.Pages
             get => this.GetLinkItemPropertyValue(nameof(Link1));
             set => this.SetLinkItemPropertyValue(nameof(Link1), value);
         }
+
+        [Display(Name = "Link", GroupName = Global.GroupNames.SiteSettings)]
+        [LinkItemProperty]
+        [BackingType(typeof(PropertyLinkCollection))]
+        [ReadOnly(true)]
+        public virtual LinkItem Link2
+        {
+            get => this.GetLinkItemPropertyValue(nameof(Link1));
+            set => this.SetLinkItemPropertyValue(nameof(Link1), value);
+        }
+
+
+        [Display(Name = "Test ContentArea", GroupName = Global.GroupNames.SiteSettings, Order = 320)]
+        [CultureSpecific]
+        public virtual ContentArea TestContentArea { get; set; }
     }
 }
