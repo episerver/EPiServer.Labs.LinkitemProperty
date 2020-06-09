@@ -1,5 +1,5 @@
 Param(
-    $SiteName = "block-enhancements-test",
+    $SiteName = "episerver-labs-linkitem-property",
     # $SitePath = "$SiteRoot\$SiteName",
     $PackageName = "Alloy.Sample.LinkItemProperty",
     $PackageVersion = "7.6.0-ci-30",
