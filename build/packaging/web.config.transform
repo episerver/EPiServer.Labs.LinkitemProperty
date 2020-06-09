@@ -2,7 +2,7 @@
 <configuration>
     <episerver.shell>
         <protectedModules>
-            <add name="episerver-labs-block-enhancements" />
+            <add name="episerver-labs-linkitem-property" />
         </protectedModules>
     </episerver.shell>
 </configuration>
