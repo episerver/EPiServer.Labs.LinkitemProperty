@@ -1,6 +1,9 @@
 # Episerver Labs - LinkItem Property
 
-LinkProperty lab addon allow Editors to manage single LinkItem instance.
+LinkProperty lab addon allows Editors to manage single LinkItem instance.
+
+The property is just a new UI Editor and it still use
+`PropertyLinkCollection` as a backing type.
 It's a LinkItemCollection property with just one item.
 
 The new editor looks similar to ContentReference editor:
@@ -11,9 +14,7 @@ When editing a link, then same dialog as for LinkItemCollection property is disp
 
 ![PropertyLink editor](assets/docsimages/LinkProperty_dialog.png)
 
-
-The property is just a new UI Editor and it still use
-`PropertyLinkCollection` as a backing type.
+## Using LinkItem property
 
 To use `LinkItemCollection` as model type, you just need to annotate 
 LinkItemCollection property with `LinkItemProperty` attribute:
