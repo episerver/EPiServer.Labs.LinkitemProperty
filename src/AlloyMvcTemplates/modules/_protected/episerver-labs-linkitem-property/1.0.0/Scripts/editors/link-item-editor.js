@@ -5,7 +5,8 @@ define([
     "epi-cms/widget/_SelectorBase",
     "epi-cms/contentediting/command/ItemEdit",
     "epi-cms/contentediting/viewmodel/LinkItemModel",
-    "episerver-labs-linkitem-property/widget/extended-link-editor"
+    "episerver-labs-linkitem-property/widget/extended-link-editor",
+    "episerver-labs-linkitem-property/tracker/tracker"
 ], function (
     declare,
     lang,
@@ -13,8 +14,11 @@ define([
     _SelectorBase,
     ItemEditCommand,
     LinkItemModel,
-    ExtendedLinkEditor
+    ExtendedLinkEditor,
+    tracker
 ) {
+    tracker.trackEvent("linkItem", {commandType: "init"})
+
     return declare([_SelectorBase], {
         postMixInProperties: function () {
             this.inherited(arguments);
@@ -56,8 +60,8 @@ define([
                 aspect.after(command, "onDialogExecute", function () {
                     this.set("value", [this._editItemCommand.value]);
                     this.onChange(this.value);
+                    tracker.trackEvent("linkItem", {commandType: "dialogSave"})
                 }.bind(this))
-
             );
 
             return command;
@@ -91,6 +95,8 @@ define([
                 this._editItemCommand.set("value", {});
             }
             this._editItemCommand.execute();
+
+            tracker.trackEvent("linkItem", {commandType: 'click'})
         },
 
         getEmptyValue: function () {
@@ -111,6 +117,7 @@ define([
             // tags:
             //    public callback
 
+            tracker.trackEvent("linkItem", {commandType: 'clear'})
             this.inherited(arguments);
             this.onChange(this.value);
         },
@@ -127,6 +134,8 @@ define([
             //var item = this._createItemFromDropData(value);
 
             //this.set("value", [item]);
+
+            tracker.trackEvent("linkItem", {commandType: 'drop'})
             this.onChange(this.value);
         },
 
