@@ -60,7 +60,7 @@ define([
                 aspect.after(command, "onDialogExecute", function () {
                     this.set("value", [this._editItemCommand.value]);
                     this.onChange(this.value);
-                    tracker.trackEvent("linkItem", {commandType: "dialogSave"})
+                    tracker.trackEvent("linkItem", { commandType: "dialogSave" });
                 }.bind(this))
             );
 
@@ -81,6 +81,10 @@ define([
             this._updateDisplayNode({ name: value[0].text });
         },
 
+        isValid: function () {
+            return (!this.required || (this.get("value") && this.get("value").length > 0));
+        },
+
         _onButtonClick: function () {
             // summary:
             //    Triggered when editor clicks on link edit button
@@ -96,7 +100,7 @@ define([
             }
             this._editItemCommand.execute();
 
-            tracker.trackEvent("linkItem", {commandType: 'click'})
+            tracker.trackEvent("linkItem", { commandType: 'click' });
         },
 
         getEmptyValue: function () {
@@ -117,7 +121,7 @@ define([
             // tags:
             //    public callback
 
-            tracker.trackEvent("linkItem", {commandType: 'clear'})
+            tracker.trackEvent("linkItem", { commandType: 'clear' });
             this.inherited(arguments);
             this.onChange(this.value);
         },
@@ -135,7 +139,7 @@ define([
 
             //this.set("value", [item]);
 
-            tracker.trackEvent("linkItem", {commandType: 'drop'})
+            tracker.trackEvent("linkItem", { commandType: 'drop' });
             this.onChange(this.value);
         },
 
